@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 
 import { useEffect, useState } from "react";
-import { get } from "../../api/api"
+import { get } from "../../api/api";
 import BlogCard from "./BlogCard";
 
 const BlogCardsWrapper = () => {
@@ -12,16 +12,16 @@ const BlogCardsWrapper = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await get('/blogs', {}, token);
+        const result = await get("/blogs", {}, token);
         setData(result.data);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
   }, []);
-  
+
   return (
     <div className="custom-container">
       {!data?.length ? (
