@@ -17,3 +17,14 @@
 body {
   background-color: #f3f2fa;
 }
+.category-container {
+  width: 100%;
+  max-width: 1019px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.one-card-container {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
