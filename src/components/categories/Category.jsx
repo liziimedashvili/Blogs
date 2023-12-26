@@ -1,16 +1,34 @@
 /* eslint-disable react/prop-types */
- const Category = ({ category, onClick }) => {
+/* eslint-disable no-unused-vars */
+import React from "react";
+
+export default function Category({
+  category,
+  onChooseCategory,
+  selectedCategory,
+}) {
+  const isCategorySelected = selectedCategory === category;
+
+  const handleClick = () => {
+    onChooseCategory(category);
+  };
+
   return (
-    <span
-      onClick={() => onClick(category)}
-      className="text-[15px] font-medium leading-4 flex items-center px-8 py-2 w-auto rounded-[30px] cursor-pointer"
-      style={{
-        backgroundColor: category.background_color,
-        color: category.text_color,
-      }}
+    <div
+      className={`items-center flex cursor-pointer underline-offset-4 ${
+        isCategorySelected ? "underline text-secondary" : "bg-transparent"
+      }`}
+      onClick={handleClick}
     >
-      {category.title}
-    </span>
+      <span
+        className="text-[12px] not-italic font-medium leading-4 px-[16px] py-[8px] rounded-[30px] cursor-pointer"
+        style={{
+          backgroundColor: category.background_color,
+          color: category.text_color,
+        }}
+      >
+        {category.title}
+      </span>
+    </div>
   );
-};
-export default Category;
+}

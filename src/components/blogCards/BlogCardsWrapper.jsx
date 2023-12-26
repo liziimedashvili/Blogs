@@ -1,49 +1,30 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-unused-vars */
-
-import { useEffect, useState } from "react";
-import { get } from "../../api/api";
+/* eslint-disable react/prop-types */
 import BlogCard from "./BlogCard";
 
-const BlogCardsWrapper = () => {
-  const [data, setData] = useState([]);
-  const token = import.meta.env.VITE_API_TOKEN;
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await get("/blogs", {}, token);
-        setData(result.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
+export default function BlogCardsWrapper({ blogs, loading, filteredBlogs }) {
+  const displayBlogs = filteredBlogs.length > 0 ? filteredBlogs : blogs;
 
   return (
-    <div className="custom-container">
-      {!data?.length ? (
-        <p>No data available</p>
+    <div className="container">
+      {loading ? (
+        <p>Loading...</p>
       ) : (
-        <div className="flex flex-wrap gap-x-[32px] gap-y-[56px] items-start mb-9">
-          {data.map((blog) => (
-            <BlogCard
-              key={blog.id}
-              id={blog.id}
-              image={blog.image}
-              title={blog.title}
-              author={blog.author}
-              publish_date={blog.publish_date}
-              categories={blog.categories}
-              description={blog.description}
-            />
+        <div className="flex flex-wrap justify-start gap-x-[32px] gap-y-[56px] mb-[66px]">
+          {displayBlogs.map((blog) => (
+            <div key={blog.id}>
+              <BlogCard
+                id={blog.id}
+                image={blog.image}
+                author={blog.author}
+                publish_date={blog.publish_date}
+                title={blog.title}
+                description={blog.description}
+                categories={blog.categories}
+              />
+            </div>
           ))}
         </div>
       )}
     </div>
   );
-};
-
-export default BlogCardsWrapper;
+}
