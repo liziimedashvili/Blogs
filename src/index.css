@@ -2,29 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-.custom-container {
-  width: 100%;
-  max-width: 1288px;
-  margin: 0 auto;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.two-line-truncate {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+html {
+  @apply scroll-smooth;
 }
+
 body {
-  background-color: #f3f2fa;
+  @apply bg-[#F3F2FA];
 }
-.category-container {
+
+.container {
+  max-width: 1288px;
   width: 100%;
-  max-width: 1019px;
   margin: 0 auto;
-  margin-bottom: 30px;
-}
-.one-card-container {
-  width: 100%;
-  max-width: 720px;
-  margin: 0 auto;
+  overflow: hidden;
 }
