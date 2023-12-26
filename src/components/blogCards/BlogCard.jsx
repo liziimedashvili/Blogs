@@ -1,64 +1,69 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React from "react";
+import { Link } from "react-router-dom";
 import ArrowIcon from "../icons/ArrowIcon";
-import Category from "../categories/Category"; 
-import { Link } from "react-router-dom"; 
 
 export default function BlogCard({
   id,
-  image,
   title,
+  image,
   author,
   publish_date,
-  categories, 
   description,
+  categories,
 }) {
+  
+
   return (
-    <div>
-      <div className="w-[408px] h-[620px] flex flex-col items-start gap-[24px]">
-        <div>
-          <img
-            src={image}
-            alt="ProductCardPhoto"
-            className="h-[328px] w-[408px] border rounded-[12px]"
-          />
-        </div>
-        <div className="flex flex-col items-start gap-[16px]">
-          <div>
-            <h1 className="text-[16px] text-black font-medium">{author}</h1>
-            <span className="text-[#85858D] text-[12px] leading-[16px] font-normal">
-              {publish_date}
-            </span>
-          </div>
-          <div className="text-[20px] text-[#1A1A1F] leading-[28px] ">
-            {title}
-          </div>
-          <div className="flex flex-wrap gap-1">
-            {categories.map((category) => (
-              <span key={category.id} className="text-xs font-medium not-italic py-[6px] px-[10px] rounded-[30px] cursor-pointer"
+    <div className="flex gap-[24px] flex-col">
+      
+      <div>
+        <img
+          src={image}
+          alt={title}
+          className="w-[408px] h-[328px] rounded-[12px] max-w-full object-cover"
+        />
+      </div>
+      
+      <div className="flex flex-col gap-[16px] justify-start">
+        <span className="text-black text-[16px] leading-5 font-bold">
+          {author}
+        </span>
+        <span className="text-sm font-light leading-5 text-[#85858D]">
+          {publish_date}
+        </span>
+        <span className="text-black text-[20px] leading-7 font-bold w-[408px]">
+          {title}
+        </span>
+        
+        <div className="flex gap-[11px]">
+          {categories.map((category) => (
+            <span
+              key={category.id}
+              className="text-xs font-medium not-italic py-[6px] px-[10px] rounded-[30px] cursor-pointer overflow-hidden flex flex-wra"
               style={{
                 backgroundColor: category.background_color,
                 color: category.text_color,
               }}
-              >{category.title}</span>
-            ))}
-          </div>
-          <div className="font-normal text-[16px] leading-7 overflow-hidden two-line-truncate">
-            {description}
-          </div>
-          <Link
-            to={`/blog/${id}`}
-            className="flex flex-row items-center mt-auto"
-          >
-            <h2 className="text-[#5D37F3] font-medium leading-4 text-[14px]">
-              სრულად ნახვა
-            </h2>
-            <ArrowIcon />
-          </Link>
+            >
+              {category.title}
+            </span>
+          ))}
         </div>
+
+        <span className="text-dark-grey text-base not-italic line-clamp-2 w-[408px] ">
+          {description}
+        </span>
+        <Link to={`/blogs/${id}`}>
+          <div className="flex flex-row items-center cursor-pointer">
+            <button className="text-primary text-[14px] leading-5 not-italic font-medium">
+              სრულად ნახვა
+            </button>
+            <ArrowIcon />
+          </div>
+        </Link>
       </div>
     </div>
   );
-  
 }

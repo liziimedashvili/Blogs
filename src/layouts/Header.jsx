@@ -1,19 +1,22 @@
-import HeaderLogo from "../assets/logo.png";
+/* eslint-disable no-unused-vars */
+import React from "react";
+import Logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
-
+import LoginForm from "../components/loginForm/LoginModal";
 export default function Header() {
   return (
-    <div className="bg-[#FFFFFF] border-b border-[#E4E3EB]">
-      <header className="custom-container flex flex-row py-7 justify-between items-center ">
-      <Link to="/">
-    <img src={HeaderLogo} alt="Logo" className="w-[150px] h-[24px]" />
-  </Link>
+    <header className="border-b border-solid border-gray-300 bg-white">
+      <div className="container h-[80px] flex justify-between items-center shrink-0">
         <div>
-            <button className="py-[10px] px-[20px] bg-[#5D37F3] border rounded-[8px] text-white">
-              შესვლა
-            </button>
+          <Link to="/">
+            <img src={Logo} />
+          </Link>
         </div>
-      </header>
-    </div>
+        <div>
+          <LoginForm />
+        </div>
+      </div>
+    </header>
   );
 }
+
