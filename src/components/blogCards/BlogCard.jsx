@@ -57,7 +57,7 @@ export default function BlogCard({
         </span>
         <Link to={`/blogs/${id}`}>
           <div className="flex flex-row items-center cursor-pointer">
-            <button className="text-primary text-[14px] leading-5 not-italic font-medium">
+            <button className="text-[#5D37F3] text-[14px] leading-5 not-italic font-medium">
               სრულად ნახვა
             </button>
             <ArrowIcon />

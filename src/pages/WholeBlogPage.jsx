@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+
 import React, { useState, useEffect } from "react";
 import { get } from "../api/api";
 import { useParams, useSearchParams } from "react-router-dom";
@@ -56,7 +57,6 @@ export default function SingleBlogPage() {
             <ArrowLeftIcon color="white" />
           </Link>
           <div className="card-wrapper ml-[240px] flex flex-col gap-[40px]">
-            {/* image */}
             <div>
               <img
                 src={blog.image}
@@ -64,23 +64,22 @@ export default function SingleBlogPage() {
                 className="h-[328px] w-[720px] rounded-[12px] object-cover "
               />
             </div>
-            {/* information */}
             <div className="w-[720px] flex flex-col gap-y-[40px]">
               <div className="flex flex-col gap-y-[24px]">
                 <div className="flex flex-col gap-y-[8px]">
-                  <span className="text-black text-[16px] not-italic leading-5 font-bold">
+                  <span className="text-[#1A1A1F] text-[16px] not-italic leading-5 font-bold">
                     {blog.author}
                   </span>
-                  <div className="flex flex-row items-center text-light-grey gap-[5px]">
+                  <div className="flex flex-row items-center text-light-grey gap-[5px] text-[#85858D]">
                     <span>{blog.publish_date}</span>
                     <span>•</span>
                     <span>{blog.email}</span>
                   </div>
                 </div>
-                <span className="font-bold text-[32px] not-italic leading-10 text-black">
+                <span className="font-bold text-[32px] not-italic leading-10 text-[#1A1A1F]">
                   {blog.title}
                 </span>
-                <div className="flex gap-[16px] text-black">
+                <div className="flex gap-[16px] text-[#1A1A1F]">
                   {blog.categories.map((category) => (
                     <Category
                       key={category.id}
@@ -110,6 +109,7 @@ export default function SingleBlogPage() {
         </span>
         {blogsData?.length ? <CardsSlider blogs={blogsData} /> : null}
       </div>
+  
     );
   };
 
