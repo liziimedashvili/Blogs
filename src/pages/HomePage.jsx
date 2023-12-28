@@ -6,7 +6,7 @@ import { get } from "../api/api";
 import Blog from "../assets/BlogPhoto.png";
 import BlogsListing from "../components/blogCards/BlogCardsWrapper";
 import Categories from "../components/categories/CategoryWrapper";
-
+import Success from "../components/Modals/Success";
 export default function HomePage() {
   const [blogsLoading, setBlogsLoading] = useState(true);
   const [blogs, setBlogs] = useState([]);
@@ -68,6 +68,7 @@ export default function HomePage() {
         selectedCategory={selectedCategory}
         onSelectCategory={handleSelectCategory}
       />
+     
       <BlogsListing blogs={blogs} filteredBlogs={filteredBlogs} />
     </div>
   );
