@@ -56,27 +56,27 @@ export default function SingleBlogPage() {
           <Link to="/">
             <ArrowLeftIcon color="white" />
           </Link>
-          <div className="card-wrapper ml-[240px] flex flex-col gap-[40px]">
+          <div className=" ml-[240px] flex flex-col gap-[40px]">
             <div>
               <img
                 src={blog.image}
                 alt={blog.title}
-                className="h-[328px] w-[720px] rounded-[12px] object-cover "
+                className="h-[400px] w-[720px] rounded-[12px] object-cover "
               />
             </div>
             <div className="w-[720px] flex flex-col gap-y-[40px]">
               <div className="flex flex-col gap-y-[24px]">
                 <div className="flex flex-col gap-y-[8px]">
-                  <span className="text-[#1A1A1F] text-[16px] not-italic leading-5 font-bold">
+                  <span className="text-[#1A1A1F] text-[16px] leading-5 font-bold">
                     {blog.author}
                   </span>
-                  <div className="flex flex-row items-center text-light-grey gap-[5px] text-[#85858D]">
+                  <div className="flex flex-row items-center gap-[5px] text-[#85858D]">
                     <span>{blog.publish_date}</span>
                     <span>•</span>
                     <span>{blog.email}</span>
                   </div>
                 </div>
-                <span className="font-bold text-[32px] not-italic leading-10 text-[#1A1A1F]">
+                <span className="font-bold text-[32px]  leading-10 text-[#1A1A1F]">
                   {blog.title}
                 </span>
                 <div className="flex gap-[16px] text-[#1A1A1F]">
@@ -90,7 +90,7 @@ export default function SingleBlogPage() {
                 </div>
               </div>
               <div>
-                <span className="text-dark-grey text-[16px] leading-7 font-normal">
+                <span className="text-[#404049] text-[16px] leading-7 font-normal">
                   {blog.description}
                 </span>
               </div>

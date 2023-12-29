@@ -10,7 +10,7 @@ export default function Header() {
   const navigate = useNavigate();
 
   const [showModal, setShowModal] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState();
+  const [loggedIn, setLoggedIn] = useState();
 
   const [showSuccessModal, setShowSuccessModal] = useState(false);
 
@@ -18,7 +18,7 @@ export default function Header() {
   const handleClose = () => setShowModal(false);
 
   const handleLogin = () => {
-    setIsLoggedIn(true);
+    setLoggedIn(true);
     setShowSuccessModal(true);
   };
 
@@ -36,7 +36,7 @@ export default function Header() {
         </div>
         <div>
   
-          {isLoggedIn ? (
+          {loggedIn ? (
             <Button title="დაამატე ბლოგი" onClick={handleAddBlog}  />
           ) : (
             <Button title="შესვლა" onClick={handleShow}  />

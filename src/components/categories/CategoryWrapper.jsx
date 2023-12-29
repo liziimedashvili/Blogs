@@ -5,16 +5,16 @@ export default function CategoryWrapper({
   onSelectCategory,
   categories,
   searchParams,
-  selectedCategory,
+  chosenCategory,
 }) {
   return (
-    <div className="flex flex-wrap justify-start gap-[24px] my-[64px]">
+    <div className="flex flex-wrap justify-start gap-[24px] my-[60px]">
       {categories.map((category) => (
         <div key={category.id}>
           <Category
             category={category}
             searchParams={searchParams}
-            selectedCategory={selectedCategory}
+            chosenCategory={chosenCategory}
             onChooseCategory={onSelectCategory}
           />
         </div>
@@ -22,3 +22,4 @@ export default function CategoryWrapper({
     </div>
   );
 }
+

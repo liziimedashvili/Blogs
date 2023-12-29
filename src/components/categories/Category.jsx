@@ -5,9 +5,9 @@ import React from "react";
 export default function Category({
   category,
   onChooseCategory,
-  selectedCategory,
+  chosenCategory,
 }) {
-  const isCategorySelected = selectedCategory === category;
+  const isCategorySelected = chosenCategory === category;
 
   const handleClick = () => {
     onChooseCategory(category);

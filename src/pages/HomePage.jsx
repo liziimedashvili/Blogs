@@ -13,7 +13,7 @@ export default function HomePage() {
   const [filteredBlogs, setFilteredBlogs] = useState([]);
 
   const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [chosenCategory, setSelectedCategory] = useState("");
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -60,12 +60,12 @@ export default function HomePage() {
         <span className="text-[64px] leading-[72px] font-bold not-italic">
           ბლოგი
         </span>
-        <img src={Blog} alt="Blog Icon" />
+        <img src={Blog}/>
       </div>
       <Categories
         categories={categories}
         searchParams={searchParams}
-        selectedCategory={selectedCategory}
+        chosenCategory={chosenCategory}
         onSelectCategory={handleSelectCategory}
       />
      
